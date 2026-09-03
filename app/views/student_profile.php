@@ -107,8 +107,6 @@
       <div><strong>Email:</strong> <?php echo $email; ?></div>
     </div>
   </section>
-
-  <!-- Footer -->
   <footer>
     Laboratory Portal &copy; 2024. All rights reserved.
   </footer>
