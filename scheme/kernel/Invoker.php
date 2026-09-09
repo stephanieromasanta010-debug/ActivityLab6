@@ -206,7 +206,17 @@ class Invoker {
 	public function view($view_file, $data = NULL)
 	{
 		$LAVA = lava_instance();
+		foreach ($LAVA->properties as $key => $val) {
+			if (!isset($this->properties[$key])) {
+				$this->properties[$key] = $val;
+			}
+		}
+
 		foreach (get_object_vars($LAVA) as $key => $val) {
+			if ($key === 'properties') {
+				continue;
+			}
+
 			if (!isset($this->properties[$key])) {
 				$this->properties[$key] = $LAVA->$key;
 			}
@@ -214,6 +224,9 @@ class Invoker {
 
 		if (!is_null($data)) {
 			if (is_array($data)) {
+				foreach ($data as $key => $val) {
+					$this->properties[$key] = $val;
+				}
 				extract($data, EXTR_SKIP);
 			} elseif (is_string($data)) {
 				$$data = $data;

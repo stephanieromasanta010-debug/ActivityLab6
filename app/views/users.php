@@ -262,35 +262,25 @@
                     <?php if (!empty($users)): ?>
 
                         <?php foreach ($users as $user): ?>
-
                             <tr>
-
                                 <td>
                                     <?= htmlspecialchars($user['id']); ?>
                                 </td>
-
                                 <td>
                                     <?= htmlspecialchars($user['firstname']); ?>
                                 </td>
-
                                 <td>
                                     <?= htmlspecialchars($user['lastname']); ?>
                                 </td>
-
                                 <td>
                                     <?= htmlspecialchars($user['email']); ?>
                                 </td>
-
                                 <td class="username">
                                     @<?= htmlspecialchars($user['username']); ?>
                                 </td>
-
                             </tr>
-
                         <?php endforeach; ?>
-
                     <?php else: ?>
-
                         <tr>
 
                             <td colspan="5"
